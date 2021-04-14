@@ -10,7 +10,7 @@ module.exports = {
         if (!channel) return;
 
         // Choose one phrase from greetPhrases randomly and construct greeting message
-        let goodbye = `${byePhrases[0]} ${member}`;
+        let goodbye = `${byePhrases[0]} ${member} (${member.user.tag})`;
         channel.send(goodbye);
         
     },
