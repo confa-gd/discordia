@@ -1,0 +1,21 @@
+{
+    "name": "Discordia",
+    "prefix": "!",
+    "allowedRoles": [
+        "UE",
+        "Unity",
+        "Code",
+        "3D",
+        "Art",
+        "Sound",
+        "Gamedesign",
+        "Narrative",
+        "Publisher",
+        "Quake",
+        "Dota",
+        "GTA",
+        "DJ",
+        "Boomer",
+        "Zoomer"
+    ]
+}
