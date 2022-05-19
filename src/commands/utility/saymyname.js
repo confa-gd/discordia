@@ -992,10 +992,10 @@ module.exports = {
       files: ['https://media.discordapp.net/attachments/446036511931236352/976648912926547988/saymyname.gif'],
     })
     .then(() => {
-      if(args == "female") {
-        message.reply(`${generateNickname("female")}`);
-      } else {
+      if(args != "female") {
         message.reply(`${generateNickname()}`);
+      } else {
+        message.reply(`${generateNickname("female")}`);
       }
     });
   },
