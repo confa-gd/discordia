@@ -978,12 +978,6 @@ function generateNickname(gender) {
     newName = wordlist.adjectiveFemale[Math.floor(Math.random()*wordlist.adjectiveFemale.length)] + ' ' + wordlist.nounFemale[Math.floor(Math.random()*wordlist.nounFemale.length)];
   }
 
-  // Capitalize first letters
-  newName = newName
-    .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-
   return (`your name is **${newName}**`);
   // return (`your name is **${newName}**\n\nHere, use it:\n\`/nick ${newName}\``);
 }
