@@ -988,9 +988,9 @@ module.exports = {
   description: "What's in a name?",
   usage: '[gender] female is optional :3',
   execute(message, args) {
-    message.channel.send({
-      files: ['https://media.discordapp.net/attachments/446036511931236352/976648912926547988/saymyname.gif'],
-    })
+    message.channel.send(
+      'https://media.discordapp.net/attachments/446036511931236352/976648912926547988/saymyname.gif'
+    )
     .then(() => {
       if(args != "female") {
         message.reply(`${generateNickname()}`);
