@@ -1,6 +1,8 @@
+require('dotenv').config();
+
 const fs = require('fs');
 const Discord = require('discord.js');
-const token = require('dotenv').config().parsed.DISCORDIA_TOKEN;
+const token = process.env.DISCORDIA_TOKEN;
 const { prefix } = require('../config.json');
 
 const client = new Discord.Client();
