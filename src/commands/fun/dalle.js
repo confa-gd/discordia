@@ -32,7 +32,7 @@ module.exports = {
 
         try {
           await message.reply(
-            `Here's your **${prompt}**`,
+            `here's your **${prompt}**`,
             {
               files: [
                 {attachment: image_url, name: prompt + '.png'},
@@ -45,7 +45,7 @@ module.exports = {
 
       } catch (e) {
         console.log(e.message);
-        message.reply('Could not generate 🤬 ' + e.message);
+        message.reply(`could not generate **${prompt}**\n${e.message} 🤬`);
       }
     }
   },
