@@ -5,7 +5,9 @@ const Discord = require('discord.js');
 const token = process.env.DISCORDIA_TOKEN;
 const { prefix } = require('../config.json');
 
-const client = new Discord.Client();
+const client = new Discord.Client({
+    restRequestTimeout: 600000,
+});
 
 // Make array of event files
 const eventFiles = fs.readdirSync('./src/events').filter(file => file.endsWith('.js'));
