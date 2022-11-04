@@ -31,7 +31,7 @@ module.exports = {
         const image_url = await generateImage(prompt);
 
         try {
-          message.reply(
+          await message.reply(
             `Here's your **${prompt}**`,
             {
               files: [
