@@ -29,14 +29,19 @@ module.exports = {
 
       try {
         const image_url = await generateImage(prompt);
-        message.reply(
-          `Here's your **${prompt}**`,
-          {
-            files: [
-              {attachment: image_url, name: prompt + '.png'},
-            ],
-          }
-        );
+
+        try {
+          message.reply(
+            `Here's your **${prompt}**`,
+            {
+              files: [
+                {attachment: image_url, name: prompt + '.png'},
+              ],
+            }
+          );
+        } catch (e) {
+          console.log(e.message);
+        }
 
       } catch (e) {
         console.log(e.message);
