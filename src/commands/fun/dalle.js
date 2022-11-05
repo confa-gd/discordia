@@ -30,22 +30,33 @@ module.exports = {
       try {
         const image_url = await generateImage(prompt);
 
-        try {
-          await message.reply(
-            `here's your **${prompt}**`,
-            {
-              files: [
-                {attachment: image_url, name: prompt + '.png'},
-              ],
-            }
-          );
-        } catch (e) {
-          console.log(e.message);
-        }
+        await message.reply(
+          `here's your **${prompt}**`,
+          {
+            files: [
+              {attachment: image_url, name: prompt + '.png'},
+            ],
+          }
+        );
 
       } catch (e) {
-        console.log(e.message);
-        message.reply(`could not generate **${prompt}**\n${e.message} 🤬`);
+        const statusCode = e.response.status;
+
+        let status = '';
+
+        switch (statusCode) {
+          case 400:
+            status = '**BAD REQUEST**';
+            break;
+          case 429:
+            status = '**RATE LIMITED**';
+            break;
+          default:
+            status = '**UNKNOWN ERROR, CHECK LOGS**';
+        }
+
+        message.reply(`could not generate **${prompt}**\n${e.message}: ${status} 🤬`);
+
       }
     }
   },
