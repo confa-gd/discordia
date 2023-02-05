@@ -35,3 +35,11 @@ for (const folder of commandFolders) {{
 }}
 
 client.login(token);
+
+// === EXPRESS just for cyclic.sh to work ===
+const express = require('express');
+const app = express();
+app.get('/', async (req, res) => {
+    return res.send('UwU');
+});
+app.listen(8999, () => {});
