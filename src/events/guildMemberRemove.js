@@ -1,17 +1,21 @@
-const { byePhrases, byeChannel } = require('../../config.json');
+import { Events } from 'discord.js';
+import { byePhrases, byeChannel } from '../../config.js';
+import chalk from 'chalk';
 
-module.exports = {
-    name: 'guildMemberRemove',
-    execute(member) {
-        // Send the message to a designated channel on a server
-        const channel = member.guild.channels.cache.find(ch => ch.name === byeChannel);
+export default {
+	name: Events.GuildMemberRemove,
+	async execute(member) {
+		console.log(chalk.yellow('[MEMBER LEFT]'), member);
+		// Send message to the designated channel
+		const channel = member.guild.channels.cache.find(ch => ch.name === byeChannel);
 
-        // Do nothing if the channel wasn't found on the server
-        if (!channel) return;
+		// Do nothing if the channels wasn't found on the server
+		if (!channel) {
+			return;
+		}
 
-        // Choose one phrase from greetPhrases randomly and construct greeting message
-        let goodbye = `${byePhrases[0]} ${member} (${member.user.tag})`;
-        channel.send(goodbye);
-        
-    },
+		// Choose one phrase from byePhrases randomly and send bye message
+		const goodbye = `${byePhrases[Math.floor(Math.random() * byePhrases.length)]} ${member} (${member.user.tag})`;
+		channel.send(goodbye);
+	},
 };
