@@ -11,6 +11,7 @@ export const allowedRoles = [
 	'Narrative',
 	'Publisher',
 	'Quake',
+	'Conan',
 	'Dota',
 	'GTA',
 	'DJ',
